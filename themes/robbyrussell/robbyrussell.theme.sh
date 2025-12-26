@@ -34,13 +34,14 @@ function _omb_theme_PROMPT_COMMAND() {
     local SCM_THEME_PROMPT_CLEAN="${_omb_prompt_bold_navy})${_omb_prompt_reset_color}"
     local SCM_THEME_PROMPT_DIRTY="${_omb_prompt_bold_navy}) ${_omb_prompt_olive}✗${_omb_prompt_reset_color}"
     local arrow="${arrow_color}➜${_omb_prompt_reset_color}"
+    local doublearrow="${arrow_color}»${omb_prompt_reset_color}"
 
-    PS1="${arrow}  ${python_venv}${base_directory} "
+    PS1="${arrow} ${python_venv}${base_directory} "
 
     local scm_info=$(scm_prompt_info)
 
     PS1+=${scm_info:+$scm_info }
-    PS1+=${_omb_prompt_normal}
+    PS1+="${doublearrow}${_omb_prompt_normal} "
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND
